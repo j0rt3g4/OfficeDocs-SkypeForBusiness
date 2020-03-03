@@ -10,6 +10,8 @@ audience: admin
 description: Learn how to run Microsoft Teams in a Virtualized Desktop Infrastructure (VDI) environment.
 localization_priority: Normal
 search.appverid: MET150
+f1.keywords:
+- NOCSH
 ms.collection: 
   - M365-collaboration
 appliesto: 
@@ -134,7 +136,7 @@ To learn more about Teams and Office 365 ProPlus, see [How to exclude Teams from
 
     - Per-user installation  (default)
   
-        ```
+        ```console
         msiexec /i <path_to_msi> /l*v <install_logfile_name>
         ```
     
@@ -142,7 +144,7 @@ To learn more about Teams and Office 365 ProPlus, see [How to exclude Teams from
     
     - Per-machine installation
 
-        ```
+        ```console
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
@@ -154,13 +156,12 @@ To learn more about Teams and Office 365 ProPlus, see [How to exclude Teams from
 
     There are two ways to uninstall Teams:  
   
-    - PowerShell script (recommended):
-    You can use this [PowerShell script](scripts/powershell-script-teams-deployment-clean-up.md) to clean up Teams from target machines or users. It should be executed for every user on a targeted machine. 
+    - PowerShell script (recommended)
     
     - Command line:
     This approach removes Teams, yet prevents re-installation of Teams. Run the following command:
   
-      ```
+      ```console
       msiexec /passive /x <path_to_msi> /l*v <uninstall_logfile_name>
       ```
       This uninstalls Teams from the Program Files (x86) folder or Program Files folder, depending on the operating system environment.
@@ -346,7 +347,8 @@ To learn more about using PowerShell to manage meeting policies, see [Set-CsTeam
     - Application sharing is not supported.
 - Give control and take control:  
     - Not supported during a screen sharing or application sharing session.
-    - Supported during a PowerPoint sharing session.  
+    - Supported during a PowerPoint sharing session.
+- When screen sharing in a multi-monitor setup, only the main monitor is shared.
 - High DPI scaling on CWA is not supported.
 
 For Teams known issues that aren’t related to VDI, see [Known issues for Teams](Known-issues.md).

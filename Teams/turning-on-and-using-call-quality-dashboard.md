@@ -16,11 +16,12 @@ appliesto:
   - Skype for Business
   - Microsoft Teams
 localization_priority: Normal
-f1keywords: 
-  - ms.teamsadmincenter.directrouting.cqd
-  - ms.lync.lac.ToolsCallQualityDashboard
+f1.keywords: 
+  - CSH
 ms.custom: 
   - Reporting
+  - ms.teamsadmincenter.directrouting.cqd
+  - ms.lync.lac.ToolsCallQualityDashboard
 description: "See how to turn on and use the Call Quality Dashboard and get summary reports of quality of calls. "
 ---
 
@@ -183,13 +184,15 @@ CQD Summary Reports provide a subset of the features planned for Detailed Report
 |Report set customization (add, delete, modify reports)   | No   | Yes   |
 |Video-based screen sharing metrics   | No   | Yes   |
 |Video metrics   | No   | Yes   |
-|Amount of data available   | Last 6 months   | Last 6 months   |
+|Amount of data available   | Last 12 months   | Last 12 months   |
 |Microsoft Teams data   | Yes   | Yes   |
 | | | |
 
 ### Out-of-the-box reports
 
 All editions of CQD provide an experience that gives you call quality metrics without the need to create new reports. Once data is processed in the back-end, you see call quality data in the reports.
+
+New in January 2020: [Download Power BI query templates for CQD](https://github.com/MicrosoftDocs/OfficeDocs-SkypeForBusiness/blob/live/Teams/downloads/CQD-Power-BI-query-templates.zip?raw=true). Customizable Power BI templates you can use to analyze and report your CQD data.
   
 ### Overview reports
 
@@ -348,7 +351,7 @@ You can download a sample template [here](https://github.com/MicrosoftDocs/Offic
 - The data file doesn't include a table header row. The first line of the data file is expected to be real data, not header labels like "Network".
 - Data types in the file can only be String, Integer, or Boolean. For the  Integer data type, the value must be a numeric value. Boolean values must be either 0 or 1.
 - If a column uses the String data type, a data field can be empty but must still be separated by a tab or comma. An empty data field just assigns an empty String value.
-- There must be 14 columns for each row, each column must have the appropriate data type, and the columns must be in the order listed in the following table:
+- There must be 14 columns for each row (or 15 if you want to add the optional column), each column must have the appropriate data type, and the columns must be in the order listed in the following table:
 
 ||||||||||||||||
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:---  |:--- |:---|
@@ -389,6 +392,17 @@ EndpointName, EndpointMake, EndpointModel, EndpointType, EndpointLabel1, Endpoin
   **Sample row:**
 
 `1409W3534, 123 manufacturer, Fabrikam Model 123, Laptop, IT designated 2018 Laptop, Asset Tag 5678, Purchase 2018
+
+## Migrate reports from previous version of CQD
+
+If  you created reports or uploaded tenant data (mapping) files to CQD for Skype for Business (https://cqd.lync.com) and want to migrate them to CQD for Teams (https://cqd.teams.microsoft.com), here’s how:
+
+1.	Go to [https://cqd.lync.com/cqd/](https://cqd.lync.com/cqd/) and browse to the report set you want to export. 
+2.	Hover over the report and, on the "..." menu, choose **Export Report Tree**. Save the export file.
+3.	Go to [https://cqd.teams.microsoft.com/cqd/](https://cqd.teams.microsoft.com/cqd/)  and browse to the location where you want to import the reports.
+4.	From the links on the left, click **Import** and select the exported file. 
+5.	After the reports are imported, you'll see this message: "Report import was successful. The new report has been added at the end of report set." 
+
 
 ## Create custom detailed reports
 
@@ -440,7 +454,17 @@ When you compare data for these two services:
   - Wired : wifi
   - Corporate network : home network
   
+### Why can't I see EUII in CQD?
 
+These admin roles can access CQD, but they can't view EUII (end-user identifiable information):
+- Office 365 Reports Reader
+- Teams Communications Support Specialist
+
+To learn more about roles that can access CQD - including EUII - read [Assign roles for accessing CQD](quality-of-experience-review-guide.md#assign-roles-for-accessing-cqd).
+
+### Why am I seeing Skype for Business information in CQD when I've filtered for Teams only?
+
+When you filter for Teams only in CQD reports (isTeams = 1), you're filtering for all calls where the *first endpoint* is Teams. If the *second endpoint* is Skype for Business, that information will show up in your CQD report.
 
 ## Related topics
 
@@ -453,3 +477,4 @@ When you compare data for these two services:
 [Use Call Analytics to troubleshoot poor call quality](use-call-analytics-to-troubleshoot-poor-call-quality.md)
 
 [Call Analytics and Call Quality Dashboard](difference-between-call-analytics-and-call-quality-dashboard.md)
+ 

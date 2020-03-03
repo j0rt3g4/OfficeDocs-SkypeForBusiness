@@ -1,7 +1,7 @@
 ---
 title: User presence in Teams
-author: jambirk
-ms.author: jambirk
+author: lolajacobsen
+ms.author: lolaj
 manager: serdars
 ms.topic: conceptual
 ms.service: msteams
@@ -12,6 +12,8 @@ localization_priority: Normal
 search.appverid: MET150
 ms.collection: 
   - M365-collaboration
+f1.keywords:
+- NOCSH
 appliesto: 
   - Microsoft Teams
 ---
@@ -34,9 +36,9 @@ The user presence states available in Teams are:
 | ![Solid green check mark, indicates Presence Available](media/Presence_Available.png) Available|![Solid green check mark, indicates Presence Available](media/Presence_Available.png) Available|
 || ![Open green check mark, indicates available oof](media/Presence_Available_OOF.png) Available, Out of Office |
 |  ![Solid red circle, indicates Busy](media/Presence_Busy.png) Busy |  ![Solid red circle, indicates Busy](media/Presence_Busy.png) Busy  |
-|| ![Solid red circle, indicates Busy in a call](media/Presence_Busy.png) In a call|
+|| ![Solid red circle, indicates Busy in a call](media/Presence_Busy.png) On a call|
 || ![Solid red circle, indicates Busy in a meeting](media/Presence_Busy.png) In a meeting |
-|| ![Open red circle, indicates Busy](media/Presence_Busy_OOF.png) In a call, out of office|
+|| ![Open red circle, indicates Busy](media/Presence_Busy_OOF.png) On a call, out of office|
 |  ![Red circle with white line, indicates Do Not Disturb](media/Presence_DND.png) Do not disturb ||
 || ![Red circle with white line, indicates Presenting](media/Presence_DND.png) Presenting|
 || ![Red circle with white line, indicates Focusing](media/Presence_DND.png) Focusing|
